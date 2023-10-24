@@ -1,0 +1,42 @@
+# ignore environment variables and local dev settings
+app/env/
+blog
+pyrightconfig.json
+*/.env
+*/.env.prod
+.env
+.env.dev
+.env.prod
+.log/*
+
+
+# ignore cache files
+app/nbi/__pycache__
+app/nbi/migrations/__pycache__
+app/national/__pycache__
+app/national/migrations/__pycache__
+db/*.vd
+.mypy_cache
+
+
+# ignore frontend package files
+react/node_modules/
+react/.env*
+react/dist/
+react/.log/
+react/public/
+react/src/assets/
+express-redis/node_modules
+express-redis/data
+nginx
+bridge_animation
+bridge.watch_nginx
+
+# ignore csvs and redis local dumps
+*/*.csv
+*.csv
+*/*.rdb
+
+# experimental GraphQL
+hasura
+todos.org
