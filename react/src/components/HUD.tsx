@@ -1,34 +1,19 @@
 import { Box, Container, Paper, Typography, Divider } from "@mui/material";
 
 const desiredFields = new Set([
-  "status",
-  "zone",
-  "permit_category",
-  "permit_sub_type",
-  "work_description",
-  "council_district",
-  "contractors_business_name",
-  "issue_date",
-  "status_date",
-  "log_id",
+  "lowest_rating",
+  "route_carried",
+  "year_built",
+  "material",
+  "type",
+  "structure_length",
+  "max_span_length",
+  "deck_condition",
+  "superstructure_condition",
+  "substructure_condition",
 ]);
 
-const getStatus = (dbStatus: string) => {
-  if (dbStatus === "retrofit") {
-    return "Retrofit in progress / completed";
-  }
-  if (dbStatus === "not retrofit") {
-    return "No retrofit permit found in LADBS";
-  }
-  if (dbStatus === "retrofit not required") {
-    return "Retrofit verified or verified is not required";
-  }
-};
-
-const HUD = ({ rawData }) => {
-  const data = JSON.parse(rawData.data);
-
-  const status = rawData.retrofit_status;
+export const HUD : React.FC<{data: any}> = ({ data }) => {
 
   const formattedEntry = (item: any) => {
     return (
@@ -70,7 +55,7 @@ const HUD = ({ rawData }) => {
           position: "absolute",
           marginLeft: 3,
           marginRight: 3,
-          top: 80,
+          marginTop: "120px",
         }}
       >
         <Paper
@@ -79,7 +64,7 @@ const HUD = ({ rawData }) => {
             px: 2,
             py: 2,
             maxHeight: "80vh",
-            maxWidth: { sm: "60vw", md: "30vw" },
+            maxWidth: { sm: "70vw", md: "30vw" },
             borderRadius: "16px",
           }}
         >
@@ -88,43 +73,25 @@ const HUD = ({ rawData }) => {
               variant="h5"
               sx={{ fontWeight: 700, fontVariant: "small-caps" }}
             >
-              {rawData.address
-                .substring(0, rawData.address.length - 6)
-                .toLowerCase()}
-            </Typography>{" "}
-            <Typography variant="h6" sx={{ fontWeight: 700 }}>
-              {rawData.address.substring(rawData.address.length - 6)}
+              {data.features}
             </Typography>
             <Typography
               variant="h6"
               sx={{ fontWeight: 700, fontVariant: "small-caps" }}
             >
-              Status: {getStatus(status)}
+              Status: {data.condition} Condition
             </Typography>
           </div>
-          {status !== "not retrofit" && (
-            <div style={{ paddingBottom: 8 }}>
-              <Typography
-                variant="h6"
-                sx={{ fontVariant: "small-caps", fontWeight: 700 }}
-              >
-                Database Entries
-              </Typography>
-            </div>
-          )}
           <Box
             sx={{
               maxHeight: "30vh",
               overflowY: "auto",
             }}
           >
-            {data.map((item: object, i: number) => {
+            {Object.entries(data).map(([k, v]) => ({[k]: v})).map((item: object) => {
               return (
                 <>
                   {formattedEntry(item)}
-                  {!(i === data.length - 1) && (
-                    <Divider sx={{ mx: 0.5, my: 1 }} />
-                  )}
                 </>
               );
             })}
@@ -134,5 +101,3 @@ const HUD = ({ rawData }) => {
     </Container>
   );
 };
-
-export default HUD;
