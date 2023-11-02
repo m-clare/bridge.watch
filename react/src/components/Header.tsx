@@ -1,5 +1,6 @@
 import { Box, Container, AppBar, Toolbar, Button, Link } from "@mui/material";
 import { Link as RouterLink } from "react-router-dom";
+import { SideMenu } from "./SideMenu";
 import background from "../assets/blue_wallpaper.webp";
 import masthead from "../assets/masthead.webp";
 
@@ -28,6 +29,7 @@ function Header() {
       >
         <Container maxWidth="lg">
           <Toolbar disableGutters id="back-to-top-anchor">
+            <SideMenu />
             <Box sx={{ flexGrow: 1 }}>
               <Container
                 maxWidth="lg"
