@@ -392,7 +392,7 @@ export const handleClearFiltersClick = (event, stateInfo) => {
 };
 
 export function isPositiveInt(val) {
-  return /^\d+$/.test(val);
+  return /^(0|[1-9]\d*)$/.test(val);
 }
 
 export function isValidYear(val) {
