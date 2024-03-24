@@ -1,4 +1,5 @@
 import { Box } from "@mui/material";
+import React from "react";
 
 // form only imports...
 import {
@@ -146,6 +147,12 @@ export const MultiDetailedFilter: React.FC<{
 export const YearRangeFilter: React.FC<{ stateInfo: any }> = ({
   stateInfo,
 }) => {
+  const [minValue, setMinValue] = React.useState<null | string>(
+    stateInfo?.detailedQueryState?.rangeFilters?.year_built?.min ?? null
+  );
+  const [maxValue, setMaxValue] = React.useState<null | string>(
+    stateInfo?.detailedQueryState?.rangeFilters?.year_built?.max ?? null
+  );
   const { detailedQueryState, submitted } = stateInfo;
   return (
     <Box
@@ -157,33 +164,27 @@ export const YearRangeFilter: React.FC<{ stateInfo: any }> = ({
     >
       <TextField
         id="year-min"
-        value={detailedQueryState.rangeFilters.year_built.min}
         disabled={submitted}
-        onBlur={(e) => handleRangeChange(e, "year_built", stateInfo, "min")}
-        label="Minimum"
-        type="number"
-        helperText=" "
-        inputProps={{
-          inputMode: "numeric",
-          min: 1697,
-          max: 2023,
-          pattern: "[1,2][0-9]{3}",
+        value={minValue}
+        onChange={(e) => {
+          setMinValue(e.target.value);
         }}
+        onBlur={(e) => {
+          handleRangeChange(e, "year_built", stateInfo, "min");
+        }}
+        label="Minimum"
+        helperText=" "
       />
       <TextField
         id="year-max"
-        value={detailedQueryState.rangeFilters.year_built.max}
         disabled={submitted}
+        value={maxValue}
+        onChange={(e) => {
+          setMaxValue(e.target.value);
+        }}
         onBlur={(e) => handleRangeChange(e, "year_built", stateInfo, "max")}
         label="Maximum"
-        type="number"
         helperText=" "
-        inputProps={{
-          inputMode: "numeric",
-          min: 1697,
-          max: 2023,
-          pattern: "[1,2][0-9]{3}",
-        }}
       />
     </Box>
   );
@@ -216,7 +217,6 @@ export const NumberRangeFilter: React.FC<{ stateInfo: any; field: string }> = ({
       />
       <TextField
         id={field + "-max"}
-        value={detailedQueryState.rangeFilters[field].max}
         disabled={submitted}
         onBlur={(e) => handleRangeChange(e, field, stateInfo, "max")}
         label="Maximum"

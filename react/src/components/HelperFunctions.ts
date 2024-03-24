@@ -4,6 +4,17 @@ export function queryDictFromURI(
   originalQuery,
   originalDetailedQuery
 ) {
+  const rangeKeys = ["year_built", "span_length", "bridge_length", "traffic"];
+  const detailedKeys = ["ratings", "deck_type", "deck_surface"];
+  const baseKeys = [
+    "plot_type",
+    "material",
+    "type",
+    "service",
+    "service_under",
+    "state",
+    "field",
+  ];
   let queryKeys = Object.keys(originalQuery);
   let queryState = {};
   for (const key of queryKeys) {
@@ -18,7 +29,7 @@ export function queryDictFromURI(
   for (const key of detailedQueryKeys) {
     if (key === "rangeFilters") {
       const rangeKeys = Object.keys(originalDetailedQuery[key]);
-      detailedQueryState["rangeFilters"] = [];
+      detailedQueryState["rangeFilters"] = {};
       for (const rangeKey of rangeKeys) {
         detailedQueryState.rangeFilters[rangeKey] = { min: "", max: "" };
       }
@@ -34,17 +45,6 @@ export function queryDictFromURI(
         .replace(/=/g, '":"') +
       '"}'
   );
-  const rangeKeys = ["year_built", "span_length", "bridge_length", "traffic"];
-  const detailedKeys = ["ratings", "deck_type", "deck_surface"];
-  const baseKeys = [
-    "plot_type",
-    "material",
-    "type",
-    "service",
-    "service_under",
-    "state",
-    "field",
-  ];
   const URIQueryKeys = Object.keys(unprocessedJSON);
   for (const key of URIQueryKeys) {
     // first get plot_type
