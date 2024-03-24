@@ -194,6 +194,12 @@ export const NumberRangeFilter: React.FC<{ stateInfo: any; field: string }> = ({
   stateInfo,
   field,
 }) => {
+  const [minValue, setMinValue] = React.useState<null | string>(
+    stateInfo?.detailedQueryState?.rangeFilters?.[field]?.min ?? null
+  );
+  const [maxValue, setMaxValue] = React.useState<null | string>(
+    stateInfo?.detailedQueryState?.rangeFilters?.[field]?.max ?? null
+  );
   const { detailedQueryState, submitted } = stateInfo;
   return (
     <Box
@@ -206,26 +212,24 @@ export const NumberRangeFilter: React.FC<{ stateInfo: any; field: string }> = ({
       <TextField
         id={field + "-min"}
         disabled={submitted}
+        value={minValue}
+        onChange={(e) => {
+          setMinValue(e.target.value);
+        }}
         onBlur={(e) => handleRangeChange(e, field, stateInfo, "min")}
         label="Minimum"
-        type="number"
         helperText={helperText[field]}
-        inputProps={{
-          inputMode: "numeric",
-          pattern: "[0-9]*",
-        }}
       />
       <TextField
         id={field + "-max"}
         disabled={submitted}
+        value={maxValue}
+        onChange={(e) => {
+          setMaxValue(e.target.value);
+        }}
         onBlur={(e) => handleRangeChange(e, field, stateInfo, "max")}
         label="Maximum"
-        type="number"
         helperText={helperText[field]}
-        inputProps={{
-          inputMode: "numeric",
-          pattern: "[0-9]*",
-        }}
       />
     </Box>
   );
