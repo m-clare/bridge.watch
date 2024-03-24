@@ -148,7 +148,7 @@ export default function StateBridges() {
   const colWidth = { single: 12, multi: 12 };
 
   return (
-    <Box sx={{ paddingTop: "124px" }}>
+    <Box sx={{ paddingTop: "124px", pb: [2, 3] }}>
       <Container maxWidth="lg">
         <Grid container spacing={[2, 3]}>
           <Grid item xs={12} md={4}>

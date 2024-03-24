@@ -89,7 +89,7 @@ const deckSurfaceOptions = {
   None: 0,
 };
 
-export const stateOptions : {[key: string]: string} = {
+export const stateOptions: { [key: string]: string } = {
   Alabama: "01",
   Alaska: "02",
   Arizona: "04",
@@ -146,7 +146,7 @@ export const stateOptions : {[key: string]: string} = {
   "Virgin Islands": "78",
 };
 
-export const plotOptions : {[key: string] : {[key:string]: string}} = {
+export const plotOptions: { [key: string]: { [key: string]: string } } = {
   percent_poor: {
     query: "rating",
     display: "Percent in poor condition",
@@ -217,7 +217,7 @@ export const detailedQueryMaps = {
 export const validRange = {
   year_built: {
     min: 1697,
-    max: 2022,
+    max: 2023,
   },
   traffic: {
     min: 0,
@@ -233,7 +233,7 @@ export const validRange = {
   },
 };
 
-export const helperText : {[key: string]: string} = {
+export const helperText: { [key: string]: string } = {
   traffic: "# vehicles/day",
   bridge_length: "total length (ft)",
   span_length: "span length (ft)",

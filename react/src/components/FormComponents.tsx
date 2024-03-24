@@ -166,7 +166,7 @@ export const YearRangeFilter: React.FC<{ stateInfo: any }> = ({
         inputProps={{
           inputMode: "numeric",
           min: 1697,
-          max: 2022,
+          max: 2023,
           pattern: "[1,2][0-9]{3}",
         }}
       />
@@ -181,7 +181,7 @@ export const YearRangeFilter: React.FC<{ stateInfo: any }> = ({
         inputProps={{
           inputMode: "numeric",
           min: 1697,
-          max: 2022,
+          max: 2023,
           pattern: "[1,2][0-9]{3}",
         }}
       />
@@ -204,7 +204,6 @@ export const NumberRangeFilter: React.FC<{ stateInfo: any; field: string }> = ({
     >
       <TextField
         id={field + "-min"}
-        value={detailedQueryState.rangeFilters[field].min}
         disabled={submitted}
         onBlur={(e) => handleRangeChange(e, field, stateInfo, "min")}
         label="Minimum"

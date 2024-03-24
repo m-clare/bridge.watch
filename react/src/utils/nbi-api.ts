@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const apiUrl = import.meta.env.VITE_REACT_APP_URL
+const apiUrl = import.meta.env.VITE_REACT_APP_URL;
 
 function getNationalBridges(uriString: string) {
   const url = `${apiUrl}/national?${uriString}`;
@@ -19,7 +19,7 @@ function getStateBridges(uriString: string) {
 }
 
 function getConditionBridges(uriString: string) {
-  const url=`${apiUrl}/conditions?${uriString}`;
+  const url = `${apiUrl}/conditions?${uriString}`;
   return axios
     .get(url)
     .then((response: any) => response.data)

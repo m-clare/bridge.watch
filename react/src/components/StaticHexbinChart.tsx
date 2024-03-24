@@ -78,7 +78,7 @@ const myHexbin = hexbin()
 const tickExtremes: { [key: string]: string[] | number[] } = {
   rating: ["Failed", "Excellent"],
   percent_poor: ["None in poor condition (%)", "All in poor condition (%)"],
-  year_built: [1900, 2022],
+  year_built: [1900, 2023],
   repair_cost_per_foot: ["$1,000", "$100,000"],
 };
 

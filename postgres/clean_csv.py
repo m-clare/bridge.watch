@@ -1,8 +1,7 @@
 import pandas as pd
 import numpy as np
 
-df = pd.read_csv("2022AllRecordsDelimitedAllStates.csv", dtype=str)
-# df = pd.read_csv("2020BadLatLong.csv", dtype=str)
+df = pd.read_csv("2023AllRecordsDelimitedAllStates.csv", dtype=str)
 print("Removing leading and lagging whitespace...")
 columns = df.columns.values.tolist()
 for column in columns:
@@ -52,6 +51,8 @@ df.loc[(~null_long), "LONG_017"] = df.loc[~null_long, "LONG_017"].str.ljust(
 
 # Convert latitude and longitude from DMS to Decimal
 print("converting DMS to decimal")
+
+
 def convert_DMS_to_decimal(DMS, type):
     """
     Converts from latitude/longitude degrees, minutes, seconds to decimal
@@ -74,13 +75,16 @@ def convert_DMS_to_decimal(DMS, type):
         frac_sec = seconds / 3600.0
         return str("{0:.5f}".format(degrees + frac_min + frac_sec))
 
+
 df.LAT_016 = df.LAT_016.apply(convert_DMS_to_decimal, type="latitude")
 df.LONG_017 = df.LONG_017.apply(convert_DMS_to_decimal, type="longitude")
 
-#Fix longitude sign for states/territories other than Guam and North Marianas Islands
+# Fix longitude sign for states/territories other than Guam and North Marianas Islands
 eastern_hemisphere = (df.STATE_CODE_001 == "69") | (df.STATE_CODE_001 == "66")
 
-df.loc[(~eastern_hemisphere), "LONG_017"] = "-" + df.loc[~eastern_hemisphere, "LONG_017"] 
+df.loc[(~eastern_hemisphere), "LONG_017"] = (
+    "-" + df.loc[~eastern_hemisphere, "LONG_017"]
+)
 
 # remove lat/long for terrible set of Maryland data
 # lat = 38, 39, 40, long = -70
@@ -91,5 +95,4 @@ df.loc[(bad_maryland), "LAT_016"] = np.nan
 # remove negative country codes (-1)
 
 print("Writing cleaned file to csv...")
-df.to_csv("2022AllRecordsDelimitedAllStatesClean.csv", na_rep="NULL", index=False)
-# df.to_csv("BadCleaned.csv", na_rep="NULL", index=False)
+df.to_csv("2023AllRecordsDelimitedAllStatesClean.csv", na_rep="NULL", index=False)

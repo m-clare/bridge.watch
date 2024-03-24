@@ -24,7 +24,7 @@ const About = () => {
                       href="https://www.fhwa.dot.gov/bridge/nbi.cfm"
                       underline="hover"
                     >
-                      <b>National Bridge Inventory 2022</b>
+                      <b>National Bridge Inventory 2023</b>
                     </Link>
                     . This dataset includes a wealth of information surrounding
                     the attributes of bridges in the U.S. as well as their
@@ -72,7 +72,7 @@ const About = () => {
                     generous with their time and expertise. Thanks to Patrick
                     Mineault, Kracekumar, and Jim Kang for their help/pairing on
                     various issues, and thanks to Ksenia Tretiakova and Diederik
-                    Vienendaal for their design feedback.
+                    Veenendaal for their design feedback.
                   </Typography>
                   <Typography variant="body1" paragraph>
                     Most of all, thank you to my husband, Aaron Freidenberg;

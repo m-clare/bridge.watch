@@ -1,4 +1,4 @@
-version: '3.8'
+version: "3.8"
 
 services:
   web:
@@ -19,8 +19,8 @@ services:
 
   db:
     build:
-      context: .
-      dockerfile: ./db/Dockerfile.prod.db
+      context: ./db
+      dockerfile: Dockerfile.prod.db
     command: postgres -c log_statement=all -c max_wal_size=2GB
     container_name: db
     volumes:
@@ -41,7 +41,6 @@ services:
     env_file:
       - ./.env.prod
     restart: always
-
 
 volumes:
   nbi-data-prod:
