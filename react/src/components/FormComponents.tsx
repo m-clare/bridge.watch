@@ -18,6 +18,8 @@ import {
   handleDetailedChange,
   handleSingleChange,
   handleRangeChange,
+  isPositiveInt,
+  isValidYear,
 } from "./HelperFunctions";
 
 export function singleSelect(plotChoices, stateInfo) {
@@ -164,6 +166,7 @@ export const YearRangeFilter: React.FC<{ stateInfo: any }> = ({
     >
       <TextField
         id="year-min"
+        error={minValue && !isValidYear(minValue)}
         disabled={submitted}
         value={minValue}
         onChange={(e) => {
@@ -177,6 +180,7 @@ export const YearRangeFilter: React.FC<{ stateInfo: any }> = ({
       />
       <TextField
         id="year-max"
+        error={maxValue && !isValidYear(minValue)}
         disabled={submitted}
         value={maxValue}
         onChange={(e) => {
@@ -211,6 +215,7 @@ export const NumberRangeFilter: React.FC<{ stateInfo: any; field: string }> = ({
     >
       <TextField
         id={field + "-min"}
+        error={minValue && !isPositiveInt(minValue)}
         disabled={submitted}
         value={minValue}
         onChange={(e) => {
@@ -222,6 +227,7 @@ export const NumberRangeFilter: React.FC<{ stateInfo: any; field: string }> = ({
       />
       <TextField
         id={field + "-max"}
+        error={maxValue && !isPositiveInt(maxValue)}
         disabled={submitted}
         value={maxValue}
         onChange={(e) => {

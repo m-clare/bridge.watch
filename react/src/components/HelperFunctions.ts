@@ -79,9 +79,8 @@ export function queryDictFromURI(
 
 function getFilteredValues(filters, unprocessedJSON, key) {
   const reversedMap = reverseOptionMap(filters[key].options);
-  const filteredList = decodeURIComponent(unprocessedJSON[key])
-    .split(",")
-    // .map((d) => parseInt(d));
+  const filteredList = decodeURIComponent(unprocessedJSON[key]).split(",");
+  // .map((d) => parseInt(d));
   let filteredValues = [];
   for (const item of filteredList) {
     if (!filteredValues.includes(reversedMap[item])) {
@@ -392,8 +391,12 @@ export const handleClearFiltersClick = (event, stateInfo) => {
   }
 };
 
-function isPositiveInt(val) {
+export function isPositiveInt(val) {
   return /^\d+$/.test(val);
+}
+
+export function isValidYear(val) {
+  return /^[1-2][0-9]{3}$/.test(val);
 }
 
 export const handleRangeChange = (event, type, stateInfo, extrema) => {
