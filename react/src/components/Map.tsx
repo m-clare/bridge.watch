@@ -1,5 +1,6 @@
 import { useRef, useEffect, useState } from "react";
 import maplibregl from "maplibre-gl";
+import Box from "@mui/material/Box";
 import { PMTiles, Protocol } from "pmtiles";
 import { LayerSpecification } from "maplibre-gl";
 import { HUD } from "./HUD";
@@ -24,12 +25,12 @@ function MaplibreMap() {
 
     const map = new maplibregl.Map({
       container: mapContainerRef.current!,
-      center: [-95.712891, 39.09024],
-      pitch: 0,
+      center: [-95.712891, 33.09024],
+      pitch: 30,
       zoom: 4,
       maxBounds: [
-        [-178, 10],
-        [-50, 80],
+        [-200, 10],
+        [-50, 70],
       ],
       minZoom: 4,
       maxZoom: 17,
@@ -179,12 +180,12 @@ function MaplibreMap() {
   }, []);
 
   return (
-    <>
+    <Box sx={{ paddingTop: "100px", width: "100%" }}>
       <div ref={mapContainerRef} className={styles.mapContainer}>
         <div ref={mapContainerRef}></div>
         {hudVisible && <HUD data={selectedMarkerData} />}
       </div>
-    </>
+    </Box>
   );
 }
 

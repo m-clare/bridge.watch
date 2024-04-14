@@ -13,8 +13,7 @@ const desiredFields = new Set([
   "substructure_condition",
 ]);
 
-export const HUD : React.FC<{data: any}> = ({ data }) => {
-
+export const HUD: React.FC<{ data: any }> = ({ data }) => {
   const formattedEntry = (item: any) => {
     return (
       <>
@@ -55,7 +54,7 @@ export const HUD : React.FC<{data: any}> = ({ data }) => {
           position: "absolute",
           marginLeft: 3,
           marginRight: 3,
-          marginTop: "120px",
+          marginTop: 3,
         }}
       >
         <Paper
@@ -88,13 +87,11 @@ export const HUD : React.FC<{data: any}> = ({ data }) => {
               overflowY: "auto",
             }}
           >
-            {Object.entries(data).map(([k, v]) => ({[k]: v})).map((item: object) => {
-              return (
-                <>
-                  {formattedEntry(item)}
-                </>
-              );
-            })}
+            {Object.entries(data)
+              .map(([k, v]) => ({ [k]: v }))
+              .map((item: object) => {
+                return <>{formattedEntry(item)}</>;
+              })}
           </Box>
         </Paper>
       </Box>
