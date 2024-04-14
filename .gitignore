@@ -40,3 +40,6 @@ bridge.watch_nginx
 # experimental GraphQL
 hasura
 todos.org
+
+# ignore hexbin generation scripts
+node_scripts/node_modules
