@@ -8,10 +8,10 @@ import * as fs from "fs";
 const width = 975;
 const height = 610;
 const scaleValue = 1300;
-const radius = 10;
+const radius = 5;
 
 const projection = d3
-  .geoAlbersUsa()
+  .geoAlbers()
   .scale(scaleValue)
   .translate([width * 0.5, height * 0.5]);
 
@@ -27,13 +27,10 @@ const customHexbin = hexbin()
 const fieldsOfInterest = {
   LAT_016: "latitude",
   LONG_017: "longitude",
-  YEAR_BUILT_027: "year_built",
   LOWEST_RATING: "rating",
 };
 
-const file = fs
-  .readFileSync("../postgres/2023AllRecordsDelimitedAllStatesClean.csv")
-  .toString();
+const file = fs.readFileSync("../postgres/2023AllFiltered.csv").toString();
 const csv = d3.csvParse(file);
 // remove other fields
 const filteredCsv = csv
@@ -143,6 +140,6 @@ const featureCollection = {
 };
 
 fs.writeFileSync(
-  "./bridges2023hexes.geojson",
+  "../react/src/assets/bridges2023hexes.json",
   JSON.stringify(featureCollection)
 );

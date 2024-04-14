@@ -81,6 +81,7 @@ function MaplibreMap() {
         type: "circle",
         source: "bridgemaptiles",
         "source-layer": "bridges2022_geopandas",
+        minzoom: 10,
         paint: {
           "circle-color": [
             "match",
@@ -115,12 +116,37 @@ function MaplibreMap() {
         id: "hexbins",
         type: "fill-extrusion",
         source: "hexes",
+        maxzoom: 10,
         paint: {
           // See the MapLibre Style Specification for details on data expressions.
           // https://maplibre.org/maplibre-style-spec/expressions/
 
           // Get the fill-extrusion-color from the source 'color' property.
-          "fill-extrusion-color": ["get", "color"],
+          "fill-extrusion-color": [
+            "match",
+            ["get", "rating"],
+            0,
+            "#a50026",
+            1,
+            "#be1827",
+            2,
+            "#d73027",
+            3,
+            "#f46d43",
+            4,
+            "#fdae61",
+            5,
+            "#fee090",
+            6,
+            "#ffffbf",
+            7,
+            "#e0f3f8",
+            8,
+            "#74add1",
+            9,
+            "#313695",
+            "#FFFFFF",
+          ],
 
           // Get fill-extrusion-height from the source 'height' property.
           "fill-extrusion-height": ["*", ["get", "height"], 100],
@@ -140,7 +166,6 @@ function MaplibreMap() {
           (feature) => feature?.sourceLayer === "bridges2022_geopandas"
         )[0] ?? null;
       if (feature) {
-        console.log(feature.properties);
         setSelectedMarkerData(feature.properties);
         setHudVisible(true);
       } else {

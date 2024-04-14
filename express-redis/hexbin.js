@@ -9,7 +9,7 @@ const height = 610;
 const scaleValue = 1300;
 
 const projection = d3
-  .geoAlbersUsa()
+  .geoAlbers()
   .scale(scaleValue)
   .translate([width * 0.5, height * 0.5]);
 
