@@ -6,6 +6,7 @@ import { HUD } from "./HUD";
 import "maplibre-gl/dist/maplibre-gl.css";
 import styles from "../styles/Home.module.css";
 import maptiler3dGl from "../assets/maptiler-3d-gl-style.json";
+import hexbins from "../assets/bridges2023hexes.json";
 
 function MaplibreMap() {
   const mapContainerRef = useRef<HTMLDivElement>(null);
@@ -70,6 +71,11 @@ function MaplibreMap() {
     map.on("load", function () {
       map.resize();
 
+      map.addSource("hexes", {
+        type: "geojson",
+        data: hexbins,
+      });
+
       map.addLayer({
         id: "bridges2022_geopandas",
         type: "circle",
@@ -104,6 +110,26 @@ function MaplibreMap() {
           "circle-radius": ["interpolate", ["linear"], ["zoom"], 4, 2, 16, 8],
         },
         filter: ["==", ["geometry-type"], "Point"],
+      });
+      map.addLayer({
+        id: "hexbins",
+        type: "fill-extrusion",
+        source: "hexes",
+        paint: {
+          // See the MapLibre Style Specification for details on data expressions.
+          // https://maplibre.org/maplibre-style-spec/expressions/
+
+          // Get the fill-extrusion-color from the source 'color' property.
+          "fill-extrusion-color": ["get", "color"],
+
+          // Get fill-extrusion-height from the source 'height' property.
+          "fill-extrusion-height": ["*", ["get", "height"], 100],
+
+          // Get fill-extrusion-base from the source 'base_height' property.
+          "fill-extrusion-base": ["get", "base_height"],
+
+          "fill-extrusion-opacity": 0.8,
+        },
       });
     });
 
