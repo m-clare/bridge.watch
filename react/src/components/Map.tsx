@@ -180,7 +180,7 @@ function MaplibreMap() {
   }, []);
 
   return (
-    <Box sx={{ paddingTop: "100px", width: "100%" }}>
+    <Box sx={{ width: "100%" }}>
       <div ref={mapContainerRef} className={styles.mapContainer}>
         <div ref={mapContainerRef}></div>
         {hudVisible && <HUD data={selectedMarkerData} />}

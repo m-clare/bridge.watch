@@ -25,6 +25,7 @@ function Header() {
         sx={{
           backgroundImage: `url(${background})`,
           backgroundSize: "150px auto",
+          position: "relative",
         }}
       >
         <Container maxWidth="lg">

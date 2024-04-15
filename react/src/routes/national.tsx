@@ -137,7 +137,7 @@ export const CountryBridges: React.FC = () => {
   const colWidth = { single: 3, multi: 3 };
 
   return (
-    <Box sx={{ paddingTop: "124px", pb: [2, 3] }}>
+    <Box sx={{ pt: [2, 3], pb: [2, 3] }}>
       <Container maxWidth="lg">
         <Grid container spacing={[2, 3]}>
           <Grid item xs={12}>

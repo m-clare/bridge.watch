@@ -7,7 +7,7 @@ import Link from "@mui/material/Link";
 
 const About = () => {
   return (
-    <Box sx={{ padding: 3, paddingTop: "124px" }}>
+    <Box sx={{ padding: 3 }}>
       <Container maxWidth="lg">
         <Grid container spacing={3}>
           <Grid item xs={12}>

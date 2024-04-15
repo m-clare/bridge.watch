@@ -128,7 +128,7 @@ export default function ConditionBridges() {
   const recordCount = d3.hierarchy(conditionBridges).sum((d) => d.value).value;
 
   return (
-    <Box sx={{ padding: 3, paddingTop: "124px", pb: [2, 3] }}>
+    <Box sx={{ padding: 3, pt: [2, 3], pb: [2, 3] }}>
       <Container maxWidth="lg">
         <Grid container spacing={3}>
           <Grid item xs={12} md={4}>
