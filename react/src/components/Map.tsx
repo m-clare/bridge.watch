@@ -15,7 +15,7 @@ function MaplibreMap() {
   const [selectedMarkerData, setSelectedMarkerData] = useState({});
   const [hudVisible, setHudVisible] = useState(false);
   const mapFile = new PMTiles("/us.pmtiles");
-  const bridgeMapFile = new PMTiles("/bridges2022.pmtiles");
+  const bridgeMapFile = new PMTiles("/bridges2023.pmtiles");
 
   useEffect(() => {
     let protocol = new Protocol();
@@ -78,10 +78,10 @@ function MaplibreMap() {
       });
 
       map.addLayer({
-        id: "bridges2022_geopandas",
+        id: "bridges_2023",
         type: "circle",
         source: "bridgemaptiles",
-        "source-layer": "bridges2022_geopandas",
+        "source-layer": "bridges_2023",
         minzoom: 10,
         paint: {
           "circle-color": [
@@ -164,7 +164,7 @@ function MaplibreMap() {
       const features = map.queryRenderedFeatures(e.point);
       const feature =
         features.filter(
-          (feature) => feature?.sourceLayer === "bridges2022_geopandas"
+          (feature) => feature?.sourceLayer === "bridges_2023"
         )[0] ?? null;
       if (feature) {
         setSelectedMarkerData(feature.properties);

@@ -56,3 +56,7 @@ sudo systemctl restart nginx
 /data/nginx/cache/
 rm -rf .
 ```
+## Tile generation
+```sh
+tippecanoe --maximum-zoom 16 --minimum-zoom 10 -o bridges2023.pmtiles -r1 --drop-densest-as-needed bridges_2023.geojson --force
+```

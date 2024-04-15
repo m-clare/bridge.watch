@@ -11,7 +11,7 @@ const scaleValue = 1300;
 const radius = 5;
 
 const projection = d3
-  .geoAlbers()
+  .geoMercator()
   .scale(scaleValue)
   .translate([width * 0.5, height * 0.5]);
 
