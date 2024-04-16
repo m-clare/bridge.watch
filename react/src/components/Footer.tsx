@@ -19,6 +19,7 @@ export default function Footer() {
         color: "primary.contrastText",
         backgroundImage: `url(${background})`,
         backgroundSize: "150px auto",
+        position: "relative",
       }}
     >
       <Container maxWidth="lg">

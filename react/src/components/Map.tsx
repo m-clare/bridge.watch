@@ -31,8 +31,9 @@ function MaplibreMap() {
       zoom: 4,
       maxBounds: [
         [-200, 10],
-        [-50, 70],
+        [-50, 71.5],
       ],
+      maxPitch: 30,
       minZoom: 4,
       maxZoom: 14,
       maplibreLogo: true,
@@ -181,7 +182,7 @@ function MaplibreMap() {
   }, []);
 
   return (
-    <Box sx={{ width: "100%" }}>
+    <Box sx={{ width: "100%", height: "auto" }}>
       <div ref={mapContainerRef} className={styles.mapContainer}>
         <div ref={mapContainerRef}></div>
         {hudVisible && <HUD data={selectedMarkerData} />}
