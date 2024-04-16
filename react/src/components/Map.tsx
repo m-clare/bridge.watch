@@ -8,6 +8,7 @@ import "maplibre-gl/dist/maplibre-gl.css";
 import styles from "../styles/Home.module.css";
 import maptiler3dGl from "../assets/maptiler-3d-gl-style.json";
 import hexbins from "../assets/bridges2023hexes.json";
+import MapLegend from "./MapLegend";
 
 function MaplibreMap() {
   const mapContainerRef = useRef<HTMLDivElement>(null);
@@ -33,7 +34,7 @@ function MaplibreMap() {
         [-50, 70],
       ],
       minZoom: 4,
-      maxZoom: 17,
+      maxZoom: 14,
       maplibreLogo: true,
       logoPosition: "bottom-left",
       style: {
@@ -51,7 +52,7 @@ function MaplibreMap() {
               "pmtiles://" + bridgeMapFile.source.getKey() + "/{z}/{x}/{y}",
             ],
             minzoom: 4,
-            maxzoom: 16,
+            maxzoom: 14,
           },
         },
         layers: maptiler3dGl.layers as LayerSpecification[],
@@ -185,6 +186,7 @@ function MaplibreMap() {
         <div ref={mapContainerRef}></div>
         {hudVisible && <HUD data={selectedMarkerData} />}
       </div>
+      <MapLegend />
     </Box>
   );
 }

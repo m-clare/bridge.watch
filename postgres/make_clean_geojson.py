@@ -77,4 +77,5 @@ points_in_usa = points_in_usa[points_in_usa.NAME == "United States"]
 final_csv = points_in_usa[columns_of_interest]
 final_csv.to_csv("2023AllFiltered.csv")
 points_in_usa.rename(columns=column_mapping, inplace=True)
+# points_in_usa.to_crs(epsg=3857, inplace=True)
 points_in_usa.to_file("bridges_2023.geojson", driver="GeoJSON")
