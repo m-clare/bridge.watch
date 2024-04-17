@@ -11,8 +11,8 @@ import hexbins from "../assets/bridges2023hexes.json";
 import MapLegend from "./MapLegend";
 import { GeocodingControl } from "@maptiler/geocoding-control/react";
 import { createMapLibreGlMapController } from "@maptiler/geocoding-control/maplibregl-controller";
+import type { MapController } from "@maptiler/geocoding-control/types";
 import "@maptiler/geocoding-control/style.css";
-import "../index.css";
 
 const API_KEY = import.meta.env.VITE_MAPTILER_API_KEY;
 
@@ -21,11 +21,14 @@ function MaplibreMap() {
   const mapRef = useRef<maplibregl.Map | null>(null);
   const [selectedMarkerData, setSelectedMarkerData] = useState({});
   const [hudVisible, setHudVisible] = useState(false);
-  const [mapController, setMapController] = useState();
+  const [mapController, setMapController] = useState<MapController>();
   const mapFile = new PMTiles("/us.pmtiles");
   const bridgeMapFile = new PMTiles("/bridges2023.pmtiles");
 
   useEffect(() => {
+    if (!mapContainerRef.current) {
+      return;
+    }
     let protocol = new Protocol();
     maplibregl.addProtocol("pmtiles", protocol.tile);
     protocol.add(mapFile);
@@ -184,17 +187,12 @@ function MaplibreMap() {
         setHudVisible(false);
       }
     });
-    return () => {
-      map.remove();
-    };
   }, []);
 
   return (
     <Box sx={{ width: "100%", height: "auto" }}>
-      <div ref={mapContainerRef} className={styles.mapContainer}>
-        <div ref={mapContainerRef}></div>
-        {hudVisible && <HUD data={selectedMarkerData} />}
-      </div>
+      <div ref={mapContainerRef} className={styles.mapContainer} />
+      {hudVisible && <HUD data={selectedMarkerData} />}
       <div
         className="geocoding"
         style={{
