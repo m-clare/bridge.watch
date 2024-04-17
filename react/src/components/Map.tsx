@@ -201,7 +201,11 @@ function MaplibreMap() {
           right: "48px",
         }}
       >
-        <GeocodingControl apiKey={API_KEY} mapController={mapController} />
+        <GeocodingControl
+          apiKey={API_KEY}
+          mapController={mapController}
+          debounceSearch={1000}
+        />
       </div>
       <MapLegend />
     </Box>
