@@ -35,7 +35,7 @@ function MaplibreMap() {
       ],
       maxPitch: 30,
       minZoom: 4,
-      maxZoom: 14,
+      maxZoom: 14.9,
       maplibreLogo: true,
       logoPosition: "bottom-left",
       style: {
@@ -45,7 +45,7 @@ function MaplibreMap() {
             type: "vector",
             tiles: ["pmtiles://" + mapFile.source.getKey() + "/{z}/{x}/{y}"],
             minzoom: 4,
-            maxzoom: 14,
+            maxzoom: 15,
           },
           bridgemaptiles: {
             type: "vector",
@@ -53,7 +53,7 @@ function MaplibreMap() {
               "pmtiles://" + bridgeMapFile.source.getKey() + "/{z}/{x}/{y}",
             ],
             minzoom: 4,
-            maxzoom: 14,
+            maxzoom: 15,
           },
         },
         layers: maptiler3dGl.layers as LayerSpecification[],
@@ -69,7 +69,7 @@ function MaplibreMap() {
       }),
       "bottom-left"
     );
-    map.addControl(new maplibregl.NavigationControl({}), "bottom-right");
+    map.addControl(new maplibregl.NavigationControl({}), "top-right");
 
     map.on("load", function () {
       map.resize();

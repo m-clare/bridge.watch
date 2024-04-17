@@ -44,7 +44,7 @@ function MapLegend() {
 
   return (
     <>
-      <Box sx={{ position: "absolute", right: 8, top: 108 }}>
+      <Box sx={{ position: "absolute", right: 48, top: 108 }}>
         <Card
           sx={{
             padding: 0.75,

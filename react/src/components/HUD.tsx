@@ -148,9 +148,9 @@ export const HUD: React.FC<{ data: any }> = ({ data }) => {
       <Box
         sx={{
           position: "absolute",
-          marginLeft: 3,
-          marginRight: 3,
-          marginTop: 3,
+          marginLeft: 1,
+          marginRight: 1,
+          marginTop: 1,
         }}
       >
         <Paper
