@@ -191,8 +191,9 @@ function MaplibreMap() {
 
   return (
     <Box sx={{ width: "100%", height: "auto" }}>
-      <div ref={mapContainerRef} className={styles.mapContainer} />
-      {hudVisible && <HUD data={selectedMarkerData} />}
+      <div ref={mapContainerRef} className={styles.mapContainer}>
+        {hudVisible && <HUD data={selectedMarkerData} />}
+      </div>
       <div
         className="geocoding"
         style={{

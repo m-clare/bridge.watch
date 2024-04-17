@@ -144,7 +144,7 @@ export const HUD: React.FC<{ data: any }> = ({ data }) => {
     );
   };
   return (
-    <Container maxWidth="lg">
+    <Container maxWidth="lg" className="HUD">
       <Box
         sx={{
           position: "absolute",
