@@ -44,19 +44,26 @@ function MapLegend() {
 
   return (
     <>
-      <Box sx={{ position: "absolute", right: 48, top: 108 }}>
+      <Box sx={{ position: "absolute", right: 48, top: 144 }}>
         <Card
           sx={{
             padding: 0.75,
-            backgroundColor: "rgba(255, 255, 255, 0.5)",
-            borderRadius: "8px",
+            backgroundColor: "rgba(255, 255, 255, 0.8)",
+            borderRadius: "4px",
             width: "180px",
           }}
         >
-          <div>
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "row",
+              justifyContent: "space-between",
+              alignItems: "center",
+            }}
+          >
             <Typography
               variant="overline"
-              sx={{ paddingLeft: 1, fontWeight: 700 }}
+              sx={{ paddingLeft: "4px", fontWeight: 700 }}
             >
               Rating Condition
             </Typography>
@@ -72,7 +79,7 @@ function MapLegend() {
           <Collapse in={expanded} timeout="auto" unmountOnExit>
             {ratingMap.map((rating) => {
               return (
-                <div style={{ position: "relative" }}>
+                <div key={rating.rating} style={{ position: "relative" }}>
                   <CircleIcon
                     sx={{
                       color: rating.color,

@@ -9,12 +9,19 @@ import styles from "../styles/Home.module.css";
 import maptiler3dGl from "../assets/maptiler-3d-gl-style.json";
 import hexbins from "../assets/bridges2023hexes.json";
 import MapLegend from "./MapLegend";
+import { GeocodingControl } from "@maptiler/geocoding-control/react";
+import { createMapLibreGlMapController } from "@maptiler/geocoding-control/maplibregl-controller";
+import "@maptiler/geocoding-control/style.css";
+import "../index.css";
+
+const API_KEY = import.meta.env.VITE_MAPTILER_API_KEY;
 
 function MaplibreMap() {
   const mapContainerRef = useRef<HTMLDivElement>(null);
   const mapRef = useRef<maplibregl.Map | null>(null);
   const [selectedMarkerData, setSelectedMarkerData] = useState({});
   const [hudVisible, setHudVisible] = useState(false);
+  const [mapController, setMapController] = useState();
   const mapFile = new PMTiles("/us.pmtiles");
   const bridgeMapFile = new PMTiles("/bridges2023.pmtiles");
 
@@ -70,6 +77,7 @@ function MaplibreMap() {
       "bottom-left"
     );
     map.addControl(new maplibregl.NavigationControl({}), "top-right");
+    setMapController(createMapLibreGlMapController(map, maplibregl));
 
     map.on("load", function () {
       map.resize();
@@ -186,6 +194,16 @@ function MaplibreMap() {
       <div ref={mapContainerRef} className={styles.mapContainer}>
         <div ref={mapContainerRef}></div>
         {hudVisible && <HUD data={selectedMarkerData} />}
+      </div>
+      <div
+        className="geocoding"
+        style={{
+          position: "absolute",
+          top: "108px",
+          right: "48px",
+        }}
+      >
+        <GeocodingControl apiKey={API_KEY} mapController={mapController} />
       </div>
       <MapLegend />
     </Box>
