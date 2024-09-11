@@ -4,7 +4,7 @@ import * as d3 from "d3";
 
 const yearBuiltColor = d3
   .scaleLinear()
-  .domain([1900, 1915, 1930, 1945, 1960, 1975, 1990, 2005, 2023])
+  .domain([1900, 1915, 1930, 1945, 1960, 1975, 1990, 2005, 2024])
   .range([
     "#f7fcf0",
     "#e0f3db",

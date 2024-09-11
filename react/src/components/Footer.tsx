@@ -123,7 +123,7 @@ export default function Footer() {
                 textShadow: "#000 1px 0 10px",
               }}
             >
-              All rights reserved © UTSV, 2023
+              All rights reserved © UTSV, 2024
             </p>
           </Grid>
         </Grid>

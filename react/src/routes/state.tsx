@@ -256,7 +256,8 @@ export default function StateBridges() {
                     </Typography>
                   </Grid>
                 ) : null}
-                {!isEmpty(stateBridges) &&
+                {stateBridges &&
+                !isEmpty(stateBridges) &&
                 !stateBridges.hasOwnProperty("message") &&
                 showPlot ? (
                   <ChoroplethMap
@@ -266,7 +267,9 @@ export default function StateBridges() {
                     submitted={submitted}
                   />
                 ) : null}
-                {!submitted && stateBridges.hasOwnProperty("message") ? (
+                {!submitted &&
+                stateBridges &&
+                stateBridges.hasOwnProperty("message") ? (
                   <Grid item xs={12}>
                     <Typography
                       sx={{ textAlign: "center" }}
@@ -280,7 +283,8 @@ export default function StateBridges() {
               </Grid>
             </Paper>
           </Grid>
-          {!isEmpty(stateBridges) &&
+          {stateBridges &&
+          !isEmpty(stateBridges) &&
           !stateBridges.hasOwnProperty("message") &&
           showPlot &&
           queryState.state.length !== 0 &&

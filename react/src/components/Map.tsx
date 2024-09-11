@@ -7,7 +7,7 @@ import { HUD } from "./HUD";
 import "maplibre-gl/dist/maplibre-gl.css";
 import styles from "../styles/Home.module.css";
 import maptiler3dGl from "../assets/maptiler-3d-gl-style.json";
-import hexbins from "../assets/bridges2023hexes.json";
+import hexbins from "../assets/bridges2024hexes.json";
 import MapLegend from "./MapLegend";
 import { GeocodingControl } from "@maptiler/geocoding-control/react";
 import { createMapLibreGlMapController } from "@maptiler/geocoding-control/maplibregl-controller";
@@ -23,7 +23,7 @@ function MaplibreMap() {
   const [hudVisible, setHudVisible] = useState(false);
   const [mapController, setMapController] = useState<MapController>();
   const mapFile = new PMTiles("/us.pmtiles");
-  const bridgeMapFile = new PMTiles("/bridges2023.pmtiles");
+  const bridgeMapFile = new PMTiles("/bridges2024.pmtiles");
 
   useEffect(() => {
     if (!mapContainerRef.current) {
@@ -91,10 +91,10 @@ function MaplibreMap() {
       });
 
       map.addLayer({
-        id: "bridges_2023",
+        id: "bridges_2024",
         type: "circle",
         source: "bridgemaptiles",
-        "source-layer": "bridges_2023",
+        "source-layer": "bridges_2024",
         minzoom: 10,
         paint: {
           "circle-color": [
@@ -177,7 +177,7 @@ function MaplibreMap() {
       const features = map.queryRenderedFeatures(e.point);
       const feature =
         features.filter(
-          (feature) => feature?.sourceLayer === "bridges_2023"
+          (feature) => feature?.sourceLayer === "bridges_2024"
         )[0] ?? null;
       if (feature) {
         setSelectedMarkerData(feature.properties);

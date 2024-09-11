@@ -24,7 +24,7 @@ const About = () => {
                       href="https://www.fhwa.dot.gov/bridge/nbi.cfm"
                       underline="hover"
                     >
-                      <b>National Bridge Inventory 2023</b>
+                      <b>National Bridge Inventory 2024</b>
                     </Link>
                     . This dataset includes a wealth of information surrounding
                     the attributes of bridges in the U.S. as well as their

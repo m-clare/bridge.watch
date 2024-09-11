@@ -9,7 +9,10 @@ usa = gpd.read_file("./cb_2021_us_nation_5m/cb_2021_us_nation_5m.shp")
 usa = usa.to_crs(epsg="4326")
 
 # Load original CSV
-df = pd.read_csv("2023AllRecordsDelimitedAllStatesClean.csv", ",", dtype="str")
+df = pd.read_csv(
+    filepath_or_buffer="2024AllRecordsDelimitedAllStatesClean.csv", sep=",", dtype="str"
+)
+
 
 columns_of_interest = [
     "FACILITY_CARRIED_007",
@@ -75,7 +78,7 @@ points_in_usa = points_in_usa[points_in_usa.NAME == "United States"]
 
 
 final_csv = points_in_usa[columns_of_interest]
-final_csv.to_csv("2023AllFiltered.csv")
+final_csv.to_csv("2024AllFiltered.csv")
 points_in_usa.rename(columns=column_mapping, inplace=True)
 # points_in_usa.to_crs(epsg=3857, inplace=True)
-points_in_usa.to_file("bridges_2023.geojson", driver="GeoJSON")
+points_in_usa.to_file("bridges_2024.geojson", driver="GeoJSON")

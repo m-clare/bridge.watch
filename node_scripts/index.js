@@ -30,7 +30,7 @@ const fieldsOfInterest = {
   LOWEST_RATING: "rating",
 };
 
-const file = fs.readFileSync("../postgres/2023AllFiltered.csv").toString();
+const file = fs.readFileSync("../postgres/2024AllFiltered.csv").toString();
 const csv = d3.csvParse(file);
 // remove other fields
 const filteredCsv = csv
@@ -134,12 +134,12 @@ const hexFeatures = bins.map((hex, i) => {
 
 const featureCollection = {
   type: "FeatureCollection",
-  name: "bridgeHexbin2023",
+  name: "bridgeHexbin2024",
   crs: { type: "name", properties: { name: "urn:ogc:def:crs:OGC:1.3:CRS84" } },
   features: hexFeatures,
 };
 
 fs.writeFileSync(
-  "../react/src/assets/bridges2023hexes.json",
+  "../react/src/assets/bridges2024hexes.json",
   JSON.stringify(featureCollection)
 );

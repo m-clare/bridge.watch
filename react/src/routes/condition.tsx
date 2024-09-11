@@ -235,7 +235,9 @@ export default function ConditionBridges() {
                     </Typography>
                   </Grid>
                 ) : null}
-                {!isEmpty(conditionBridges) && recordCount !== 0 ? (
+                {conditionBridges &&
+                !isEmpty(conditionBridges) &&
+                recordCount !== 0 ? (
                   <>
                     <Grid item xs={12}>
                       <Typography variant="h6" sx={{ textAlign: "center" }}>
@@ -266,7 +268,8 @@ export default function ConditionBridges() {
               </Grid>
             </Paper>
           </Grid>
-          {!isEmpty(conditionBridges) &&
+          {conditionBridges &&
+          !isEmpty(conditionBridges) &&
           recordCount !== 0 &&
           !submitted &&
           !waiting ? (

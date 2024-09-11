@@ -37,7 +37,7 @@ const textSummary = function (summaryType: any, count: any, locality: any) {
         with their overall "rating" based on the lowest value of superstructure,
         substructure, and deck condition as encoded in the
         <Link underline="hover" href="https://www.fhwa.dot.gov/bridge/nbi.cfm">
-          <b> 2023 National Bridge Inventory</b>
+          <b> 2024 National Bridge Inventory</b>
         </Link>
         on a scale of 0 to 9. Bridges that are missing ratings are omitted from
         the plot. If "scaled hex area" is toggled, the hexagon size represents
@@ -52,7 +52,7 @@ const textSummary = function (summaryType: any, count: any, locality: any) {
         This map aggregates the locations of {count} bridges in {locality} with
         their year built as encoded in the{" "}
         <Link underline="hover" href="https://www.fhwa.dot.gov/bridge/nbi.cfm">
-          <b> 2023 National Bridge Inventory</b>
+          <b> 2024 National Bridge Inventory</b>
         </Link>
         . If "scaled hex area" is toggled, the hexagon size represents the
         number of bridges in the vicinity, while the color represents the median
@@ -67,7 +67,7 @@ const textSummary = function (summaryType: any, count: any, locality: any) {
         the percent of poorly rated bridges within a given hexbin as encoded in
         the{" "}
         <Link underline="hover" href="https://www.fhwa.dot.gov/bridge/nbi.cfm">
-          <b> 2023 National Bridge Inventory</b>
+          <b> 2024 National Bridge Inventory</b>
         </Link>
         . Poorly rated bridges have a numerical rating of 4 or lower. Bridges
         that are missing ratings are omitted from the plot. If "scaled hex area"
@@ -88,7 +88,7 @@ const textSummary = function (summaryType: any, count: any, locality: any) {
         bridge using the length of structure improvement and total project cost
         fields from the{" "}
         <Link underline="hover" href="https://www.fhwa.dot.gov/bridge/nbi.cfm">
-          <b> 2023 National Bridge Inventory</b>
+          <b> 2024 National Bridge Inventory</b>
         </Link>
         . This value is calculated based only on bridges that have been marked
         within the past 8 years as in need of repair with an estimated repair
@@ -114,7 +114,7 @@ const textSummary = function (summaryType: any, count: any, locality: any) {
         the estimated daily traffic (including trucks) or truck-only traffic
         from the{" "}
         <Link underline="hover" href="https://www.fhwa.dot.gov/bridge/nbi.cfm">
-          <b> 2023 National Bridge Inventory</b>
+          <b> 2024 National Bridge Inventory</b>
         </Link>
         . If "scaled hex area" is toggled, the hexagon size represents the
         number of bridges in the vicinity, while the color represents the
@@ -134,7 +134,7 @@ const textSummary = function (summaryType: any, count: any, locality: any) {
         This map aggregates the locations of {count} bridges in {locality} with
         the anticipated date of next inspection based on the{" "}
         <Link underline="hover" href="https://www.fhwa.dot.gov/bridge/nbi.cfm">
-          <b> 2023 National Bridge Inventory</b>
+          <b> 2024 National Bridge Inventory</b>
         </Link>
         . This value is calculated from the last date of inspection with the
         interval in months (typically 24); only inspections due in the next year
@@ -152,7 +152,7 @@ const textSummary = function (summaryType: any, count: any, locality: any) {
         their overall "rating" based on the lowest value of superstructure,
         substructure, and deck condition as encoded in the{" "}
         <Link underline="hover" href="https://www.fhwa.dot.gov/bridge/nbi.cfm">
-          <b> 2023 National Bridge Inventory</b>
+          <b> 2024 National Bridge Inventory</b>
         </Link>{" "}
         on a scale of 0 to 9. Bridges that are missing ratings are omitted from
         the plot. The color represents the median rating in the corresponding
@@ -166,7 +166,7 @@ const textSummary = function (summaryType: any, count: any, locality: any) {
         This map aggregates the locations of {count} bridges in {locality} with
         their year built as encoded in the{" "}
         <Link underline="hover" href="https://www.fhwa.dot.gov/bridge/nbi.cfm">
-          <b> 2023 National Bridge Inventory</b>
+          <b> 2024 National Bridge Inventory</b>
         </Link>
         . The color represents the median year built in the corresponding
         histogram. Additional filtering can be performed using the options
@@ -179,7 +179,7 @@ const textSummary = function (summaryType: any, count: any, locality: any) {
         This map aggregates the locations of {count} bridges in {locality} with
         the percent of poorly rated bridges within a county as encoded in the{" "}
         <Link underline="hover" href="https://www.fhwa.dot.gov/bridge/nbi.cfm">
-          <b> 2023 National Bridge Inventory</b>
+          <b> 2024 National Bridge Inventory</b>
         </Link>
         . Poorly rated bridges have a numerical rating of 4 or lower. Bridges
         that are missing ratings are omitted from the plot. The color represents
@@ -195,7 +195,7 @@ const textSummary = function (summaryType: any, count: any, locality: any) {
         bridge using the length of structure improvement and total project cost
         fields from the{" "}
         <Link underline="hover" href="https://www.fhwa.dot.gov/bridge/nbi.cfm">
-          <b> 2023 National Bridge Inventory</b>
+          <b> 2024 National Bridge Inventory</b>
         </Link>
         . This value is calculated based only on bridges that have been marked
         within the past 8 years as in need of repair with an estimated repair
@@ -219,7 +219,7 @@ const textSummary = function (summaryType: any, count: any, locality: any) {
         the estimated daily traffic (including trucks) or truck-only traffic
         from the{" "}
         <Link underline="hover" href="https://www.fhwa.dot.gov/bridge/nbi.cfm">
-          <b> 2023 National Bridge Inventory</b>
+          <b> 2024 National Bridge Inventory</b>
         </Link>
         . The color represents the average value per bridge. Additional
         filtering can be performed using the options above. These values show
@@ -234,7 +234,7 @@ const textSummary = function (summaryType: any, count: any, locality: any) {
         This map aggregates the locations of {count} bridges in {locality} with
         the anticipated date of next inspection based on the{" "}
         <Link underline="hover" href="https://www.fhwa.dot.gov/bridge/nbi.cfm">
-          <b> 2023 National Bridge Inventory</b>
+          <b> 2024 National Bridge Inventory</b>
         </Link>
         . This value is calculated from the last date of inspection with the
         interval in months (typically 24); only inspections due in the next year

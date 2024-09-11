@@ -217,7 +217,7 @@ export const detailedQueryMaps = {
 export const validRange = {
   year_built: {
     min: 1697,
-    max: 2023,
+    max: 2024,
   },
   traffic: {
     min: 0,
